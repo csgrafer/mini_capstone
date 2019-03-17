@@ -7,11 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+# products = Product.all
+
+# products.each do |product|
+#   supplier_id = Supplier.all.sample.id
+#   product.supplier_id = supplier_id
+#   product.save
+
+# end
+
+
 products = Product.all
 
 products.each do |product|
-  supplier_id = Supplier.all.sample.id
-  product.supplier_id = supplier_id
-  product.save
-
+  Image.create(
+    url: product.image_url,
+    product_id: product.id
+    )
 end
